@@ -158,7 +158,7 @@ class App(QMainWindow):
         self.show()
 
     def dzialanie(self):
-        self.liczba1 = int(self.resultLabel.text())
+        self.liczba1 = round(float(self.resultLabel.text()))
         if self.znak == '+':
             self.wynik += self.liczba1
         elif self.znak == '*':
@@ -172,11 +172,11 @@ class App(QMainWindow):
 
     def check(self):
         if self.pierwszy:
-            self.operationLabel.setText(self.operationLabel.text() + str(int(self.liczba1)) + self.znak)
+            self.operationLabel.setText(self.operationLabel.text() + str(round(self.liczba1, 0)) + self.znak)
             self.resultLabel.setText("0")
             self.buttonEqual.setEnabled(True)
         else:
-            self.operationLabel.setText(str(int(self.wynik)) + self.znak)
+            self.operationLabel.setText(str(round(self.liczba1, 0)) + self.znak)
             self.resultLabel.setText("0")
             self.pierwszy = True
             self.buttonEqual.setEnabled(True)
@@ -280,20 +280,20 @@ class App(QMainWindow):
         self.dzialanie()
         self.buttonEqual.setEnabled(False)
         self.pierwszy = False
-        self.operationLabel.setText(self.operationLabel.text() + str(int(self.liczba1)) + "=")
-        self.resultLabel.setText(str(int(self.wynik)))
+        self.operationLabel.setText(self.operationLabel.text() + str(round(self.liczba1, 0)) + "=")
+        self.resultLabel.setText(str(round(self.wynik)))
         self.liczba1 = self.wynik
         self.wynik = 0
         self.znak = '+'
 
     @pyqtSlot()
     def on_clickSqrt(self):
-        self.liczba1 = int(self.resultLabel.text())
+        self.liczba1 = round(float(self.resultLabel.text()))
         self.buttonEqual.setEnabled(False)
         self.pierwszy = False
         self.operationLabel.setText("sqrt(" + str(self.liczba1) + ")=")
         self.wynik = math.sqrt(self.liczba1)
-        self.resultLabel.setText(str(int(self.wynik)))
+        self.resultLabel.setText(str(round(self.wynik)))
         self.liczba1 = self.wynik
         self.wynik = 0
         self.znak = '+'
@@ -309,9 +309,9 @@ class App(QMainWindow):
         if self.resultLabel.text() == "0":
             self.resultLabel.setText("0")
         else:
-            self.liczba1 = int(self.resultLabel.text())
+            self.liczba1 = round(self.resultLabel.text())
             self.liczba1 = self.liczba1 - self.liczba1 - self.liczba1
-            self.resultLabel.setText(str(self.liczba1))
+            self.resultLabel.setText(str(round(self.liczba1)))
             self.liczba1 = 0
 
     @pyqtSlot()
