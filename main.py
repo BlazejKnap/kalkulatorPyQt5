@@ -24,6 +24,8 @@ class App(QMainWindow):
     def initUI(self):
         self.setWindowTitle(self.title)
         self.setGeometry(self.left, self.top, self.width, self.height)
+        self.setMinimumSize(self.width, self.height)
+        self.setMaximumSize(self.width, self.height)
 
         self.operationLabel = QLabel(self)
         self.operationLabel.setFont(QFont('Arial', 15))
