@@ -27,7 +27,7 @@ class App(QMainWindow):
         self.setGeometry(self.left, self.top, self.width, self.height)
 
         self.operationLabel = QLabel(self)
-        self.operationLabel.setFont(QFont('Arial', 20))
+        self.operationLabel.setFont(QFont('Arial', 15))
         self.operationLabel.setStyleSheet("border: 1px solid black;")
         self.operationLabel.setText("")
         self.operationLabel.move(5, 5)
