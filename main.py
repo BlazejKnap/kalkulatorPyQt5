@@ -3,7 +3,7 @@ import math
 
 from PyQt5.QtCore import pyqtSlot
 from PyQt5.QtGui import QFont
-from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QLabel, QPushButton
+from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QPushButton
 from PyQt5 import QtCore
 
 
@@ -20,7 +20,6 @@ class App(QMainWindow):
         self.znak = '+'
         self.pierwszy = True
         self.initUI()
-
 
     def initUI(self):
         self.setWindowTitle(self.title)
@@ -125,7 +124,6 @@ class App(QMainWindow):
         self.buttonDivide.setFont(QFont('Arial', 20))
         self.buttonDivide.clicked.connect(self.on_clickDivide)
 
-
         self.buttonEqual = QPushButton('=', self)
         self.buttonEqual.move(80, 325)
         self.buttonEqual.resize(145, 50)
@@ -158,7 +156,6 @@ class App(QMainWindow):
         self.buttonC.clicked.connect(self.on_clickC)
 
         self.show()
-
 
     def dzialanie(self):
         self.liczba1 = int(self.resultLabel.text())
